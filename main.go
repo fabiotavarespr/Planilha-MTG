@@ -1,10 +1,8 @@
 package main
 
-import (
-	//"MagicTheGathering/mtg-sdk-go"
-	import "github.com/fabiotavarespr/Planilha-MTG/cmd"
-	
-)
+import "github.com/fabiotavarespr/Planilha-MTG/cmd"
+
+//"MagicTheGathering/mtg-sdk-go"
 
 func main() {
 	cmd.Execute()
