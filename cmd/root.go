@@ -4,13 +4,19 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/fabiotavarespr/Planilha-MTG/export"
+
 	"github.com/spf13/cobra"
 )
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "Planilha MTG",
-	Short: "Gerador de planilha de edições de Magic: The Gathering ",
+	Use:   "planilha",
+	Short: "Gerador de planilha de edições de Magic: The Gathering",
+	Long:  "Geradora uma planilha de edições de Magic: The Gathering que você solicita",
+	Run: func(cmd *cobra.Command, args []string) {
+		export.ApresentaListagem()
+	},
 }
 
 func Execute() {
