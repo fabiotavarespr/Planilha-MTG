@@ -3,9 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	//"github.com/fabiotavarespr/Planilha-MTG/version"
-
 	"github.com/fabiotavarespr/Planilha-MTG/version"
+
 	"github.com/spf13/cobra"
 )
 
