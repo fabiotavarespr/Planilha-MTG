@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/MagicTheGathering/mtg-sdk-go"
+	"github.com/fabiotavarespr/Planilha-MTG/file"
 )
 
 // FormattedMessage gets the full formatted version message
@@ -15,11 +16,11 @@ func ApresentaListagem() {
 		panic(err)
 	}
 
-	card := cards[0]
+	lines := make([]string, len(cards))
 
-	fmt.Println(card.Name)
+	for i, card := range cards {
+		lines[i] = fmt.Sprintf("%s; %s; %s; %s; %s;\n", card.Number, card.Name, card.Type, card.ManaCost, card.Rarity)
+	}
 
-	// for _, card := range cards {
-	// 	fmt.Println(card)
-	// }
+	file.Salvar(lines)
 }
