@@ -2,3 +2,5 @@
 *.csv
 
 *.idea
+
+.vscode

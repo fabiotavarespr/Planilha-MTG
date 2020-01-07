@@ -1,9 +1,8 @@
 package export
 
 import (
-	"fmt"
-
 	"github.com/MagicTheGathering/mtg-sdk-go"
+	"github.com/fabiotavarespr/Planilha-MTG/card"
 	"github.com/fabiotavarespr/Planilha-MTG/file"
 )
 
@@ -18,9 +17,30 @@ func ApresentaListagem() {
 
 	lines := make([]string, len(cards))
 
-	for i, card := range cards {
-		lines[i] = fmt.Sprintf("%s; %s; %s; %s; %s;\n", card.Number, card.Name, card.Type, card.ManaCost, card.Rarity)
+	for i, c := range cards {
+
+		var name string
+
+		if len(c.Names) > 1 {
+			for i, n := range c.Names {
+				if i == 0 {
+					name = n
+				} else {
+					name = name + " / " + n
+				}
+			}
+		} else {
+			name = c.Name
+		}
+		typeCard := c.Type
+
+		check := true
+
+		if check {
+			lines[i] = card.NewCard(c.Number, name, typeCard, c.ManaCost, c.Rarity).String()
+		}
+
 	}
 
-	file.Salvar(lines)
+	file.Save(lines)
 }

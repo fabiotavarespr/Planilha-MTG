@@ -1,23 +1,26 @@
 package file
 
 import (
-	"encoding/csv"
+	"io"
 	"log"
 	"os"
 )
 
-func Salvar(row []string) {
+func Save(lista []string) {
 	csvfile, err := os.Create("planilha.csv")
 
 	if err != nil {
 		log.Fatalf("failed creating file: %s", err)
 	}
 
-	csvwriter := csv.NewWriter(csvfile)
+	for _, card := range lista {
+		_, err = io.WriteString(csvfile, card)
+		if err != nil {
+			log.Fatal(err)
+		}
+		csvfile.Sync()
+	}
 
-	csvwriter.Write(row)
+	defer csvfile.Close()
 
-	csvwriter.Flush()
-
-	csvfile.Close()
 }
