@@ -7,40 +7,31 @@ import (
 )
 
 // FormattedMessage gets the full formatted version message
-func ApresentaListagem() {
+func ApresentaListagem(set string) {
 	qry := mtg.NewQuery()
-	qry.Where(mtg.CardSet, "ELD").OrderBy(mtg.CardNumber)
+	qry.Where(mtg.CardSet, set).OrderBy(mtg.CardNumber)
 	cards, err := qry.All()
 	if err != nil {
 		panic(err)
 	}
 
-	lines := make([]string, len(cards))
+	lines := make([]string, 0)
 
-	for i, c := range cards {
+	sizeList := len(cards)
 
-		var name string
-
-		if len(c.Names) > 1 {
-			for i, n := range c.Names {
-				if i == 0 {
-					name = n
-				} else {
-					name = name + " / " + n
-				}
+	for i := 0; i < sizeList; i++ {
+		c1 := cards[i]
+		// Logica criada para atender edições com flips ou adventures
+		if i != sizeList-1 {
+			c2 := cards[i+1]
+			if c1.Number == c2.Number {
+				c1.Name += " / " + c2.Name
+				c1.Type += " / " + c2.Type
+				i++
 			}
-		} else {
-			name = c.Name
 		}
-		typeCard := c.Type
-
-		check := true
-
-		if check {
-			lines[i] = card.NewCard(c.Number, name, typeCard, c.ManaCost, c.Rarity).String()
-		}
-
+		lines = append(lines, card.NewCard(c1.Number, c1.Name, c1.Type, c1.ManaCost, c1.Rarity).String())
 	}
 
-	file.Save(lines)
+	file.Save(set, lines)
 }

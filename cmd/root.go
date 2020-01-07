@@ -15,7 +15,7 @@ var rootCmd = &cobra.Command{
 	Short: "Gerador de planilha de edições de Magic: The Gathering",
 	Long:  "Geradora uma planilha de edições de Magic: The Gathering que você solicita",
 	Run: func(cmd *cobra.Command, args []string) {
-		export.ApresentaListagem()
+		export.ApresentaListagem("ELD")
 	},
 }
 
