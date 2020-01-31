@@ -1,6 +1,7 @@
 package export
 
 import (
+	"fmt"
 	"github.com/MagicTheGathering/mtg-sdk-go"
 	"github.com/fabiotavarespr/Planilha-MTG/card"
 	"github.com/fabiotavarespr/Planilha-MTG/file"
@@ -8,9 +9,11 @@ import (
 
 // FormattedMessage gets the full formatted version message
 func ApresentaListagem(set string) {
+	fmt.Println("Starting find collection " + set)
 	qry := mtg.NewQuery()
 	qry.Where(mtg.CardSet, set).OrderBy(mtg.CardNumber)
 	cards, err := qry.All()
+	fmt.Println("Finishing find collection " + set)
 	if err != nil {
 		panic(err)
 	}
