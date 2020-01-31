@@ -15,8 +15,8 @@ func ListarSets() {
 		panic(err)
 	}
 
-	for _, set := range sets {
-		fmt.Println(set)
+	for _, s := range sets {
+		fmt.Printf("%s - %s\n", s.SetCode, s.Name)
 	}
 
 }

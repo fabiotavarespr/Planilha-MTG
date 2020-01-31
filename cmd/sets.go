@@ -8,13 +8,17 @@ import (
 
 // versionCmd represents the version command
 var setsCmd = &cobra.Command{
-	Use:   "sets",
-	Short: "Display alls sets of Magic Editions",
+	Use:     "sets",
+	Aliases: []string{"s"},
+	Short:   "Display alls sets of Magic Editions",
+	Long: `Display alls sets of Magic Editions.
+Separate by Name and Code
+	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		sets.ListarSets()
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(setsCmd)
+	RootCmd.AddCommand(setsCmd)
 }
