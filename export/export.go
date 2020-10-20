@@ -2,9 +2,10 @@ package export
 
 import (
 	"fmt"
-	"github.com/MagicTheGathering/mtg-sdk-go"
+
 	"github.com/fabiotavarespr/Planilha-MTG/card"
 	"github.com/fabiotavarespr/Planilha-MTG/file"
+	"github.com/fabiotavarespr/mtg-sdk-go"
 )
 
 // FormattedMessage gets the full formatted version message

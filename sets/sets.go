@@ -3,7 +3,7 @@ package sets
 import (
 	"fmt"
 
-	"github.com/MagicTheGathering/mtg-sdk-go"
+	"github.com/fabiotavarespr/mtg-sdk-go"
 )
 
 // FormattedMessage gets the full formatted version message

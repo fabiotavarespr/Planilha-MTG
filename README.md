@@ -8,13 +8,13 @@ Projeto escrito em GO, tem como objetivo gerar uma arquivo chamado planilha.csv 
 
 ## Bibliotecas utilizadas
 
-* [Magic: The Gathering SDK](https://github.com/MagicTheGathering/mtg-sdk-go)
+* [Magic: The Gathering SDK](https://github.com/fabiotavarespr/mtg-sdk-go)
 * [Cobra](https://github.com/spf13/cobra)
 
 ## Pré-requisitos
 
 ``` 
-go get github.com/MagicTheGathering/mtg-sdk-go
+go get github.com/fabiotavarespr/mtg-sdk-go
 go get github.com/spf13/cobra
 ```
 
